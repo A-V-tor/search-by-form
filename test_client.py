@@ -15,3 +15,8 @@ print('\n\n3) Запрос /get_form?phone_check=900 888 80 80&data_check=2023-1
 # запрос с совпадением шаблона в бд и дополнительным номером телефона
 res = app.test_client().post('/get_form?phone_check=+7 900 888 80 80&data_check=2023-10-10&desc_check=Description of this form&email_check=check@example.com&number=+7 700 700 70 70')
 print('\n\n4) Запрос /get_form?phone_check=+7 900 888 80 80&data_check=2023-10-10&desc_check=Description of this form&email_check=check@example.com&number=+7 700 700 70 70\n\nОтвет: ', res.text)
+
+
+# запрос с частичными данными из 2 шаблонов в бд и дополнительным номером телефона
+res = app.test_client().post('/get_form?phone_check=+7 900 888 80 80&data_check=2023-10-10&desc_check=Description of this form&email_check=check@example.com&number=+7 888 888 80 80&date=2022-08-12&text=some text')
+print('\n\n5) Запрос /get_form?phone_check=+7 900 888 80 80&data_check=2023-10-10&desc_check=Description of this form&email_check=check@example.com&number=+7 888 888 80 80&date=2022-08-12&text=some text\n\nОтвет: ', res.text)

@@ -15,7 +15,6 @@ if not collection.find_one():
 @app.post('/get_form')
 def indx():
     query_params = request.args.to_dict()
-    print(123, query_params)
     response = match_checking(query_params, collection)
     if not response:
         response = define_field_type(query_params)
